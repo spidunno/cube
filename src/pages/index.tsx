@@ -9,14 +9,9 @@ export default function Home() {
 		<Stack direction="column" justifyContent={"center"} height={"100%"}>
 			<Stack direction={"row"} justifyContent={"center"} width={"100%"}>
 				<Stack direction={"column"} spacing={"-0.47em"}>
-					{[...Array(count).keys()].map((v, i) => {
-						return (
-							<CubeEffect
-								key={i}
-								delay={`${Math.pow(i / (count - 1), 0.5) / 2}s`}
-							/>
-						);
-					})}
+					<CubeEffect move="down" delay={"0s"} />
+					<CubeEffect delay={"0.3535533905932738s"} />
+					<CubeEffect move="up" delay={"0.5s"} />
 				</Stack>
 			</Stack>
 		</Stack>
@@ -40,6 +35,27 @@ from {
 }
 `;
 
+const moveDown = keyframes`
+from {
+	top: 0;
+}
+
+to {
+	top: 1em;
+	color: transparent;
+}
+`;
+const moveUp = keyframes`
+from {
+	top: 0;
+}
+
+to {
+	top: -1em;
+		color: transparent;
+}
+`;
+
 const RotatedNameBox = styled(Box)(() => ({
 	position: "absolute",
 	top: "0",
@@ -49,21 +65,28 @@ const RotatedNameBox = styled(Box)(() => ({
 	animation: `${fadeIn} 1.5s cubic-bezier(.5, 0, 0.35, 1)`,
 }));
 
-function CubeEffect({ delay }: { delay?: string } = { delay: "0" }) {
+function CubeEffect(
+	{ delay, move }: { delay?: string; move?: string } = { delay: "0" }
+) {
 	return (
 		<Box
-		fontFamily={'"Press Start 2P"'}
+			fontFamily={'"Press Start 2P"'}
 			fontSize={{
 				xs: "48pt",
 				sm: "72pt",
 			}}
 			sx={{
 				// top: props.top,
+				// top: 0,
+				// bottom: 0,
 				transformStyle: "preserve-3d",
 				transformOrigin: "center center 1.55em",
 				position: "relative",
-				animation: `${rotate} 1.5s cubic-bezier(.5, 0, 0.35, 1)`,
-				animationDelay: delay,
+				animation: `${rotate} 1.5s cubic-bezier(.5, 0, 0.35, 1)${
+					move ? `, ${move === "down" ? moveDown : moveUp} 0.5s cubic-bezier(.5, 0, 0.35, 1)` : ""
+				}`,
+				animationFillMode: "forwards",
+				animationDelay: `${delay}${move ? ", 1.75s" : ""}`,
 				// transform: "rotateY(90deg)",
 			}}
 		>
