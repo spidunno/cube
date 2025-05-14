@@ -7,6 +7,7 @@
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.0",
         "@fontsource/inter": "^5.2.5",
+        "@fontsource/press-start-2p": "^5.2.5",
         "@mui/joy": "^5.0.0-beta.52",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
@@ -171,6 +172,8 @@
     "@floating-ui/utils": ["@floating-ui/utils@0.2.9", "", {}, "sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg=="],
 
     "@fontsource/inter": ["@fontsource/inter@5.2.5", "", {}, "sha512-kbsPKj0S4p44JdYRFiW78Td8Ge2sBVxi/PIBwmih+RpSXUdvS9nbs1HIiuUSPtRMi14CqLEZ/fbk7dj7vni1Sg=="],
+
+    "@fontsource/press-start-2p": ["@fontsource/press-start-2p@5.2.5", "", {}, "sha512-MmGLqhkv0kuoyeGgGkquEMRxJP6auc6918bKd8uTWP2beXMWLZZwCfXCqmskFLf0XYbtbzxuRXLjTnQBeTwsMQ=="],
 
     "@humanfs/core": ["@humanfs/core@0.19.1", "", {}, "sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA=="],
 

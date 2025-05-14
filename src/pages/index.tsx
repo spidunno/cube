@@ -1,18 +1,19 @@
 import { keyframes } from "@emotion/react";
 import { Box, Stack, styled, Typography } from "@mui/joy";
+import "@fontsource/press-start-2p/index.css";
 
-const count = 6;
+const count = 3;
 
 export default function Home() {
 	return (
-		<Stack>
+		<Stack direction="column" justifyContent={"center"} height={"100%"}>
 			<Stack direction={"row"} justifyContent={"center"} width={"100%"}>
-				<Stack direction={"column"}>
+				<Stack direction={"column"} spacing={"-0.47em"}>
 					{[...Array(count).keys()].map((v, i) => {
 						return (
 							<CubeEffect
 								key={i}
-								delay={`${Math.pow(i / (count - 1), 1.5) / 2}s`}
+								delay={`${Math.pow(i / (count - 1), 0.5) / 2}s`}
 							/>
 						);
 					})}
@@ -43,7 +44,7 @@ const RotatedNameBox = styled(Box)(() => ({
 	position: "absolute",
 	top: "0",
 	left: "0",
-	transformOrigin: "center center 1em",
+	transformOrigin: "center center 1.55em",
 	backfaceVisibility: "hidden",
 	animation: `${fadeIn} 1.5s cubic-bezier(.5, 0, 0.35, 1)`,
 }));
@@ -51,6 +52,7 @@ const RotatedNameBox = styled(Box)(() => ({
 function CubeEffect({ delay }: { delay?: string } = { delay: "0" }) {
 	return (
 		<Box
+		fontFamily={'"Press Start 2P"'}
 			fontSize={{
 				xs: "48pt",
 				sm: "72pt",
@@ -58,10 +60,11 @@ function CubeEffect({ delay }: { delay?: string } = { delay: "0" }) {
 			sx={{
 				// top: props.top,
 				transformStyle: "preserve-3d",
-				transformOrigin: "center center 1em",
+				transformOrigin: "center center 1.55em",
 				position: "relative",
 				animation: `${rotate} 1.5s cubic-bezier(.5, 0, 0.35, 1)`,
 				animationDelay: delay,
+				// transform: "rotateY(90deg)",
 			}}
 		>
 			<Box
