@@ -127,7 +127,7 @@ function CubeEffect(
 				sx={{
 					transform: "rotateY(90deg)",
 					animationDelay: delay,
-					color: (theme) => theme.palette.colorScheme === "dark" ? "#fcee26" : "#e0cb2b"
+					color: (theme) => `rgb(${theme.palette.warning.mainChannel})`,
 				}}
 			>
 				qbq
@@ -136,7 +136,7 @@ function CubeEffect(
 				sx={{
 					transform: "rotateY(180deg)",
 					animationDelay: delay,
-					color: (theme) => `rgb(${theme.palette.warning.mainChannel})`,
+					color: (theme) => theme.palette.colorScheme === "dark" ? "#fcee26" : "#e0cb2b"
 				}}
 			>
 				qbq
