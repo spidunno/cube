@@ -12,18 +12,18 @@ import "@fontsource/press-start-2p/index.css";
 const count = 3;
 
 export default function Home() {
-	const { colorScheme, setColorScheme } = useColorScheme();
+	// const { colorScheme, setColorScheme } = useColorScheme();
 
 	return (
 		<Box width="100%" height="100%">
-			<Button
+			{/* <Button
 				onClick={() => {
 					if (colorScheme === "dark") setColorScheme("light");
 					if (colorScheme === "light") setColorScheme("dark");
 				}}
 			>
 				color
-			</Button>
+			</Button> */}
 			<Stack direction="column" justifyContent={"center"} height={"100%"}>
 				<Stack direction={"row"} justifyContent={"center"} width={"100%"}>
 					<Stack direction={"column"} spacing={"-0.47em"}>
@@ -95,6 +95,7 @@ function CubeEffect(
 				sm: "72pt",
 			}}
 			sx={{
+				userSelect: "none",
 				// top: props.top,
 				// top: 0,
 				// bottom: 0,
