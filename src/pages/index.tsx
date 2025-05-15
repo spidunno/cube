@@ -1,20 +1,39 @@
 import { keyframes } from "@emotion/react";
-import { Box, Stack, styled, Typography } from "@mui/joy";
+import {
+	Box,
+	Button,
+	Stack,
+	styled,
+	Typography,
+	useColorScheme,
+} from "@mui/joy";
 import "@fontsource/press-start-2p/index.css";
 
 const count = 3;
 
 export default function Home() {
+	const { colorScheme, setColorScheme } = useColorScheme();
+
 	return (
-		<Stack direction="column" justifyContent={"center"} height={"100%"}>
-			<Stack direction={"row"} justifyContent={"center"} width={"100%"}>
-				<Stack direction={"column"} spacing={"-0.47em"}>
-					<CubeEffect move="down" delay={"0s"} />
-					<CubeEffect delay={"0.3535533905932738s"} />
-					<CubeEffect move="up" delay={"0.5s"} />
+		<Box width="100%" height="100%">
+			<Button
+				onClick={() => {
+					if (colorScheme === "dark") setColorScheme("light");
+					if (colorScheme === "light") setColorScheme("dark");
+				}}
+			>
+				color
+			</Button>
+			<Stack direction="column" justifyContent={"center"} height={"100%"}>
+				<Stack direction={"row"} justifyContent={"center"} width={"100%"}>
+					<Stack direction={"column"} spacing={"-0.47em"}>
+						<CubeEffect move="down" delay={"0s"} />
+						<CubeEffect delay={"0.3535533905932738s"} />
+						<CubeEffect move="up" delay={"0.5s"} />
+					</Stack>
 				</Stack>
 			</Stack>
-		</Stack>
+		</Box>
 	);
 }
 const rotate = keyframes`
@@ -83,7 +102,11 @@ function CubeEffect(
 				transformOrigin: "center center 1.55em",
 				position: "relative",
 				animation: `${rotate} 1.5s cubic-bezier(.5, 0, 0.35, 1)${
-					move ? `, ${move === "down" ? moveDown : moveUp} 0.5s cubic-bezier(.5, 0, 0.35, 1)` : ""
+					move
+						? `, ${
+								move === "down" ? moveDown : moveUp
+						  } 0.5s cubic-bezier(.5, 0, 0.35, 1)`
+						: ""
 				}`,
 				animationFillMode: "forwards",
 				animationDelay: `${delay}${move ? ", 1.75s" : ""}`,
@@ -103,6 +126,7 @@ function CubeEffect(
 				sx={{
 					transform: "rotateY(90deg)",
 					animationDelay: delay,
+					color: (theme) => theme.palette.colorScheme === "dark" ? "#fcee26" : "#e0cb2b"
 				}}
 			>
 				qbq
@@ -111,6 +135,7 @@ function CubeEffect(
 				sx={{
 					transform: "rotateY(180deg)",
 					animationDelay: delay,
+					color: (theme) => `rgb(${theme.palette.warning.mainChannel})`,
 				}}
 			>
 				qbq
@@ -119,6 +144,7 @@ function CubeEffect(
 				sx={{
 					transform: "rotateY(270deg)",
 					animationDelay: delay,
+					color: (theme) => `rgb(${theme.palette.danger.mainChannel})`,
 				}}
 			>
 				qbq
